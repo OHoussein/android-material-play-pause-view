@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#e1e1e1">
+
+    <com.ohoussein.playpause.PlayPauseView
+        android:id="@+id/play_pause_view"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerInParent="true"
+        android:clickable="true"
+        android:stateListAnimator="@drawable/button_elevation"
+        android:foreground="?android:selectableItemBackground"
+        app:fill_color="#e1e1e1"
+        app:pause_bg="#00a2ed"
+        app:play_bg="#001eff" />
+</RelativeLayout>
