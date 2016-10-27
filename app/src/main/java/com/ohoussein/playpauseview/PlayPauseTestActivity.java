@@ -20,6 +20,5 @@ public class PlayPauseTestActivity extends AppCompatActivity {
                 view.toggle();
             }
         });
-        view.change
     }
 }

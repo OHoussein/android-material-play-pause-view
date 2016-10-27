@@ -12,7 +12,6 @@
         android:layout_centerInParent="true"
         android:clickable="true"
         android:stateListAnimator="@drawable/button_elevation"
-        android:foreground="?android:selectableItemBackground"
         app:fill_color="#e1e1e1"
         app:pause_bg="#00a2ed"
         app:play_bg="#001eff" />
