@@ -1,11 +1,16 @@
 `MaterialPlayPauseView` that toggle play/pause with material animation
 
-
-
+<div  align="center">    
+<img src="https://raw.githubusercontent.com/OHoussein/android-material-play-pause-view/master/media/demo.gif" alt="demo" align=center />
+</div>
+ 
 
 ###**Usage Sample**
 
-in layout xml
+####Gradle
+compile 'com.github.ohoussein.playpauseview:playpauseview:1.0.0'
+
+#### layout
 ```xml
     <com.ohoussein.playpause.PlayPauseView
         android:id="@+id/play_pause_view"
@@ -22,7 +27,7 @@ in layout xml
 * play_bg : the background for the play status
 * fill_color: the icon's color
 
-In Activity
+#### Java
 ```java
         PlayPauseView view = (PlayPauseView) findViewById(R.id.play_pause_view);
         view.setOnClickListener(new View.OnClickListener() {
