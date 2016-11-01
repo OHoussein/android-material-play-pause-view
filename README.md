@@ -1,5 +1,11 @@
 `MaterialPlayPauseView` that toggle play/pause with material animation
 
+This an improvements of the [Alex Lockwood's PlayPauseView](https://github.com/alexjlockwood/material-pause-play-animation).
+It add this features:
+* Possibility to specify the view's size and colors
+* Save Instance State
+* Toggle/change state with or without animation
+
 <div  align="center">    
 <img src="https://raw.githubusercontent.com/OHoussein/android-material-play-pause-view/master/media/demo.gif" alt="demo" align=center />
 </div>
