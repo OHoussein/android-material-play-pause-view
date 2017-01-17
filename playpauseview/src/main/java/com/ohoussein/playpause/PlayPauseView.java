@@ -131,13 +131,13 @@ public class PlayPauseView extends FrameLayout {
         }
     }
 
+    public int getColor() {
+        return mBackgroundColor;
+    }
+
     public void setColor(int color) {
         mBackgroundColor = color;
         invalidate();
-    }
-
-    public int getColor() {
-        return mBackgroundColor;
     }
 
     @Override
@@ -177,7 +177,7 @@ public class PlayPauseView extends FrameLayout {
      * @param withAnim false to change status without animation
      */
     public void change(boolean isPlay, boolean withAnim) {
-        if (mDrawable.isPlay() && isPlay)
+        if ((mDrawable.isPlay() && isPlay) || (!mDrawable.isPlay() && !isPlay))
             return;
         toggle(withAnim);
     }
@@ -220,6 +220,16 @@ public class PlayPauseView extends FrameLayout {
     }
 
     static class SavedState extends BaseSavedState {
+        public static final Parcelable.Creator<SavedState> CREATOR
+                = new Parcelable.Creator<SavedState>() {
+            public SavedState createFromParcel(Parcel in) {
+                return new SavedState(in);
+            }
+
+            public SavedState[] newArray(int size) {
+                return new SavedState[size];
+            }
+        };
         boolean isPlay;
 
         SavedState(Parcelable superState) {
@@ -236,17 +246,6 @@ public class PlayPauseView extends FrameLayout {
             super.writeToParcel(out, flags);
             out.writeByte(isPlay ? (byte) 1 : (byte) 0);
         }
-
-        public static final Parcelable.Creator<SavedState> CREATOR
-                = new Parcelable.Creator<SavedState>() {
-            public SavedState createFromParcel(Parcel in) {
-                return new SavedState(in);
-            }
-
-            public SavedState[] newArray(int size) {
-                return new SavedState[size];
-            }
-        };
     }
 
 }
