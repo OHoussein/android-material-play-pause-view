@@ -1,3 +1,23 @@
+[![JitPack](https://jitpack.io/v/rosenpin/android-material-play-pause-view.svg)](https://jitpack.io/#rosenpin/android-material-play-pause-view)
+
+Add this to your project build.gradle
+```	gradle
+allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+}
+```
+ 
+ Add this to your module build.gradle
+ ```gradle
+dependencies {
+    compile 'com.github.rosenpin:android-material-play-pause-view:1.1'
+}
+ ```
+
+
 `MaterialPlayPauseView` that toggle play/pause with material animation
 
 This an improvements of the [Alex Lockwood's PlayPauseView](https://github.com/alexjlockwood/material-pause-play-animation).
