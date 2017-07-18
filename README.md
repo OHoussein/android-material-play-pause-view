@@ -11,11 +11,21 @@ It add this features:
 </div>
  
 
-###**Usage Sample**
+**Usage Sample**
 
-####Gradle
-compile 'com.github.ohoussein.playpauseview:playpauseview:1.0.0'
+Add this to your project build.gradle
+```	gradle
+allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+}
+```
 
+```	gradle
+compile 'com.github.ohoussein.playpauseview:playpauseview:1.0.1'
+```
 #### layout
 ```xml
     <com.ohoussein.playpause.PlayPauseView
