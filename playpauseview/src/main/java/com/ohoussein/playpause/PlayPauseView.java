@@ -177,7 +177,7 @@ public class PlayPauseView extends FrameLayout {
      * @param withAnim false to change status without animation
      */
     public void change(boolean isPlay, boolean withAnim) {
-        if (mDrawable.isPlay() && isPlay)
+        if (mDrawable.isPlay() == isPlay)
             return;
         toggle(withAnim);
     }
