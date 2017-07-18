@@ -219,7 +219,11 @@ public class PlayPauseView extends FrameLayout {
         }
     }
 
-    static class SavedState extends BaseSavedState {
+    public boolean isPlay() {
+        return mDrawable.isPlay();
+    }
+
+    private static class SavedState extends BaseSavedState {
         boolean isPlay;
 
         SavedState(Parcelable superState) {
