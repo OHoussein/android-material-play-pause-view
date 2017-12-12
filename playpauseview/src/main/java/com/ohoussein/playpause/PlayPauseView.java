@@ -16,6 +16,7 @@ import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.Property;
 import android.view.View;
 import android.view.ViewOutlineProvider;
@@ -48,6 +49,9 @@ public class PlayPauseView extends FrameLayout {
     private int mBackgroundColor;
     private int mWidth;
     private int mHeight;
+
+    private boolean isAnimating = false;
+    private int queuedToggles = 0;
 
     public PlayPauseView(Context context) {
         super(context);
@@ -188,16 +192,33 @@ public class PlayPauseView extends FrameLayout {
      * @param withAnim false to change status without animation
      */
     public void toggle(boolean withAnim) {
+        if (isAnimating) {
+            queuedToggles++;
+            return;
+        }
+
+        isAnimating = true;
+
         if (withAnim) {
             if (mAnimatorSet != null) {
                 mAnimatorSet.cancel();
             }
 
             mAnimatorSet = new AnimatorSet();
+
             final boolean isPlay = mDrawable.isPlay();
             final ObjectAnimator colorAnim = ObjectAnimator.ofInt(this, COLOR, isPlay ? mPauseBackgroundColor : mPlayBackgroundColor);
             colorAnim.setEvaluator(new ArgbEvaluator());
-            final Animator pausePlayAnim = mDrawable.getPausePlayAnimator();
+            final Animator pausePlayAnim = mDrawable.getPausePlayAnimator(new Runnable() {
+                @Override
+                public void run() {
+                    isAnimating = false;
+                    if (queuedToggles % 2 == 1) {
+                        toggle();
+                    }
+                    queuedToggles = 0;
+                }
+            });
             mAnimatorSet.setInterpolator(new DecelerateInterpolator());
             mAnimatorSet.setDuration(PLAY_PAUSE_ANIMATION_DURATION);
             mAnimatorSet.playTogether(colorAnim, pausePlayAnim);
