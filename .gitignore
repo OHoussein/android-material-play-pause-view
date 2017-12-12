@@ -6,6 +6,3 @@ build
 app/src/main/assets/paperwork.json
 .idea/
 *.iml
-gradlew
-gradlew.bat
-gradle
