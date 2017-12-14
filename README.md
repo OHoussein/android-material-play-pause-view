@@ -24,7 +24,7 @@ allprojects {
 ```
 
 ```	gradle
-compile 'com.github.ohoussein.playpauseview:playpauseview:1.0.1'
+compile 'com.github.ohoussein.playpauseview:playpauseview:1.0.2'
 ```
 #### layout
 ```xml
