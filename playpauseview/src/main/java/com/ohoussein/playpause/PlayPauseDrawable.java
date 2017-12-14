@@ -129,7 +129,7 @@ public class PlayPauseDrawable extends Drawable {
         final Animator anim = ObjectAnimator.ofFloat(this, PROGRESS, mIsPlay ? 1 : 0, mIsPlay ? 0 : 1);
         anim.addListener(new AnimatorListenerAdapter() {
             @Override
-            public void onAnimationEnd(Animator animation) {
+            public void onAnimationStart(Animator animation) {
                 mIsPlay = !mIsPlay;
             }
         });
